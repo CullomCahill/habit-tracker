@@ -1,0 +1,11 @@
+[build]
+  publish = "."
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+# 11pm UTC = 7pm EDT / 6pm EST
+# To change: adjust the hour (0-23 UTC). e.g. "0 22 * * *" = 6pm EDT
+[functions."push-notify"]
+  schedule = "0 23 * * *"
