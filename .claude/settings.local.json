@@ -4,7 +4,9 @@
       "PowerShell(Start-Sleep -Seconds 2; Start-Process \"http://localhost:3333\")",
       "PowerShell(Start-Process \"http://localhost:3333\")",
       "PowerShell(New-Item *)",
-      "PowerShell(npm install *)"
+      "PowerShell(npm install *)",
+      "Bash(npx --yes serve . --listen 3000)",
+      "Bash(npx serve *)"
     ]
   }
 }
