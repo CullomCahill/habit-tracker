@@ -72,15 +72,13 @@ function showScreen(id) {
 function renderSetup() {
   document.getElementById('setup').innerHTML = `
     <div class="header"><h1>Welcome</h1></div>
-    <div class="setup-intro">Enter the 3 habits you want to track daily.</div>
+    <div class="setup-intro">Enter a habit you want to track daily.</div>
     <div class="body">
       <div class="input-group">
-        ${[1,2,3].map(n => `
-          <div>
-            <div class="input-label">Habit ${n}</div>
-            <input class="habit-input" id="h${n}" type="text" placeholder="e.g. Exercise" maxlength="32">
-          </div>
-        `).join('')}
+        <div>
+          <div class="input-label">Habit 1</div>
+          <input class="habit-input" id="h1" type="text" placeholder="e.g. Exercise" maxlength="32">
+        </div>
       </div>
     </div>
     <div class="nav-strip">
@@ -90,8 +88,8 @@ function renderSetup() {
 }
 
 function saveSetup() {
-  const vals = [1,2,3].map(n => document.getElementById(`h${n}`).value.trim());
-  if (vals.some(v => !v)) { showToast('Please name all 3 habits'); return; }
+  const vals = [document.getElementById('h1').value.trim()];
+  if (!vals[0]) { showToast('Please name your habit'); return; }
   habits = vals;
   saveHabits(habits);
   viewOffset = 0;
